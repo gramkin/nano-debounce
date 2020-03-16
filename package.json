@@ -1,0 +1,26 @@
+{
+  "name": "nano-debounce",
+  "version": "1.0.0",
+  "description": "Minimal debounce function implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "debounce"
+  ],
+  "author": "Grigory Ivanov <bakluzhino@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.3.1",
+    "@types/jest": "^25.1.4",
+    "jest": "^25.1.0",
+    "size-limit": "^4.3.1"
+  },
+  "size-limit": [
+    {
+      "path": "index.js",
+      "limit": "66 B"
+    }
+  ]
+}
