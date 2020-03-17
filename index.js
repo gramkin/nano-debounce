@@ -1,12 +1,12 @@
 module.exports = function (callback, ms, immediate) {
   var timeout;
   return function () {
-    var args = arguments;
-    immediate && !timeout && callback.apply(null, args);
+    var args = arguments, self = this;
+    immediate && !timeout && callback.apply(self, args);
     clearTimeout(timeout);
     timeout = setTimeout(function () {
       timeout = null;
-      !immediate && callback.apply(null, args);
+      !immediate && callback.apply(self, args);
     }, ms);
   }
 };

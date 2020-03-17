@@ -1,7 +1,7 @@
 # nano-debounce
 
 Minimal debounce function with immediate call support. 
-59 bytes (minified and gzipped)
+65 bytes (minified and gzipped)
 [Size Limit] controls the size
 
 [Size Limit]:   https://github.com/ai/size-limit

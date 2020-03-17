@@ -1,6 +1,6 @@
 {
   "name": "nano-debounce",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Minimal debounce function implementation",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "59 B"
+      "limit": "65 B"
     }
   ]
 }
