@@ -1,6 +1,6 @@
 {
   "name": "nano-debounce",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Minimal debounce function implementation",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
   ],
   "author": "Grigory Ivanov <bakluzhino@gmail.com>",
   "license": "ISC",
+  "repository": "gramkin/nano-debounce",
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.3.1",
     "@types/jest": "^25.1.4",
