@@ -8,9 +8,9 @@ function delay(ms) {
   });
 }
 
-const TT = 1000, TI = 10000;
+const TT = 100, TI = 1000;
 
-it('debounce immediate', async done => {
+it('debounce default', async done => {
   let t = new Date().getTime();
 
   let lastArg, calls = 0;
@@ -26,16 +26,28 @@ it('debounce immediate', async done => {
 
   let interval = setInterval(function () {
     debounced(++i);
-  }, 9);
+  }, 5);
 
   await delay(TI);
 
   clearInterval(interval);
 
-  await delay(TT);
+  await delay(TT + 100);
+
+  interval = setInterval(function () {
+    debounced(++i);
+  }, 5);
+
+  await delay(TI);
+
+  clearInterval(interval);
+
+  await delay(TT + 100);
 
   try {
-    expect(calls).toBe(1);
+    console.log('calls', calls);
+    console.log('lastArg', lastArg);
+    expect(calls).toBe(2);
     expect(i).toBe(lastArg);
     done();
   } catch (error) {
@@ -43,7 +55,7 @@ it('debounce immediate', async done => {
   }
 });
 
-it('debounce without immediate call', async done => {
+it('debounce with immediate', async done => {
   let lastArg, calls = 0;
 
   const func = function (i) {
@@ -51,22 +63,32 @@ it('debounce without immediate call', async done => {
     lastArg = i;
   };
 
-  const debounced = debounce(func, TT, false);
+  const debounced = debounce(func, TT, true);
 
   let i = 0;
 
   let interval = setInterval(function () {
     debounced(++i);
-  }, 10);
+  }, 5);
 
   await delay(TI);
 
   clearInterval(interval);
 
-  await delay(TT);
+  await delay(TT + 100);
+
+  interval = setInterval(function () {
+    debounced(++i);
+  }, 5);
+
+  await delay(TI);
+
+  clearInterval(interval);
+
+  await delay(TT + 100);
 
   try {
-    expect(calls).toBe(1);
+    expect(calls).toBe(4);
     expect(i).toBe(lastArg);
     done();
   } catch (error) {
